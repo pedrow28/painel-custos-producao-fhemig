@@ -125,6 +125,12 @@ if not metric_candidates:
 st.sidebar.header("🔎 Filtros")
 hosp_all = sorted(set(df_costs["Hospital"]) | set(df_prod["Hospital"]))
 sel_hosp = st.sidebar.multiselect("Hospitais", hosp_all, default=hosp_all)
+
+# se não selecionar nenhum hospital:
+if len(sel_hosp) == 0:
+    st.warning("⚠️ Selecione ao menos um hospital para exibir os dados.")
+    st.stop()
+
 grupos = ["(Todos)"] + sorted(df_costs["Grupo"].dropna().unique().tolist())
 sel_grupo = st.sidebar.selectbox("Grupo de despesa", grupos, index=0)
 metric_sel = st.sidebar.selectbox("Indicador de produção", metric_candidates, index=0)
