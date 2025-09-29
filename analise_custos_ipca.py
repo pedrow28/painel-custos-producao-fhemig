@@ -197,11 +197,11 @@ if (ajuste_preco == "Deflacionado (IPCA/BCB)") and (ipca_df is not None) and (no
 # Header
 # ---------------------------
 st.title("🏥 FHEMIG — Custos × Produção")
-c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3 = st.columns(3)
 c1.metric("Hospitais", f"{len(sel_hosp)}")
-c2.metric("Período", f"{date_range[0].strftime('%m/%Y')} – {date_range[1].strftime('%m/%Y')}")
-c3.metric("Grupo", sel_grupo)
-c4.metric("IPCA acumulado", ipca_acum_txt)
+c2.metric("Grupo", sel_grupo)
+c3.metric("IPCA acumulado", ipca_acum_txt)
+
 
 # ---------------------------
 # Gráfico 1 – Barras (Custo) + Linha (Produção), 2 eixos Y
